@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Question 2 - JSON Data</title>
+</head>
+<body>
+
+    <h2>Book Information</h2>
+
+    <script>
+
+        fetch("books.json")
+            .then(response => response.json())
+            .then(data => {
+
+                // (a) Title of the first book
+                console.log("First Book Title: " + data.books[0].title);
+
+                // (b) Author of the second book
+                console.log("Second Book Author: " + data.books[1].author);
+
+                // (c) Genres of all books
+                console.log("Genres of All Books:");
+
+                data.books.forEach(function(book) {
+                    console.log(book.title + ": " + book.genres.join(", "));
+                });
+
+            })
+            .catch(error => console.log("Error:", error));
+
+    </script>
+
+</body>
+</html>
